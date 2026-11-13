@@ -1,0 +1,122 @@
+/* =====================================================================
+   TEMA B2B — "Vertice Consulting"
+   Nero grafite + verde smeraldo. Grafica: cruscotto dati, griglia, glifo.
+   ===================================================================== */
+:root {
+  --bg: #040807;
+  --bg-2: #08110e;
+  --text: #eaf3f0;
+  --head: #fff;
+  --strong: #fff;
+  --dim: #9fb0ab;
+
+  --accent: #2dd4a0;
+  --accent-soft: rgba(45, 212, 160, .13);
+  --on-accent: #03140e;
+
+  --btn-bg: #047857;
+  --btn-bg-hover: #059669;
+  --btn-text: #fff;
+
+  --card: linear-gradient(150deg, rgba(45, 212, 160, .075), rgba(255, 255, 255, .015));
+  --card2: linear-gradient(150deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .015));
+  --card-border: rgba(120, 230, 200, .13);
+  --card-border-strong: rgba(120, 230, 200, .26);
+  --panel-bg: linear-gradient(180deg, rgba(16, 185, 129, .18), rgba(255, 255, 255, .02) 60%);
+  --glow: rgba(16, 185, 129, .5);
+  --grad: linear-gradient(90deg, #fff 0%, #bff7e3 48%, #34d399 100%);
+  --nav-bg: rgba(9, 20, 17, .62);
+  --brand-bg: linear-gradient(135deg, #34d399, #059669);
+  --flow-bg: #050c0a;
+  --flow-hot: #fff;
+  --flow-mid: #b9f1de;
+  --flow-dim: #5f9c88;
+  --star: #34d399;
+}
+
+/* ---------- Hero ---------- */
+.hero { isolation: isolate; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background: radial-gradient(52% 46% at 50% 18%, rgba(16, 185, 129, .3), transparent 70%);
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(62% 55% at 50% 28%, #000, transparent);
+  mask-image: radial-gradient(62% 55% at 50% 28%, #000, transparent);
+}
+.hero-glyph {
+  position: absolute; left: 50%; top: 30px; transform: translateX(-50%); z-index: -1;
+  font-size: clamp(380px, 62vw, 780px); line-height: .9; font-weight: 800; letter-spacing: -.06em;
+  color: transparent; -webkit-text-stroke: 1.5px rgba(52, 211, 153, .11);
+  pointer-events: none; user-select: none;
+  -webkit-mask-image: linear-gradient(#000 25%, transparent 78%); mask-image: linear-gradient(#000 25%, transparent 78%);
+}
+.hero h1 { max-width: 15ch; margin-inline: auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px; margin-bottom: 28px;
+  border-radius: 999px; border: 1px solid var(--card-border-strong); background: rgba(16, 185, 129, .08);
+  font-size: .85rem; font-weight: 550; color: #c9f5e6;
+}
+.hero-badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(45, 212, 160, .22); animation: pulse 2.2s infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(45, 212, 160, 0); } }
+
+/* ---------- Cruscotto ---------- */
+.dash {
+  max-width: 1040px; margin: clamp(48px, 7vw, 84px) auto 0; text-align: left; position: relative;
+  border-radius: 26px; border: 1px solid var(--card-border-strong);
+  background: linear-gradient(180deg, rgba(14, 28, 24, .92), rgba(6, 12, 10, .92));
+  box-shadow: 0 50px 120px -30px rgba(16, 185, 129, .35), 0 0 0 1px rgba(0, 0, 0, .6);
+  overflow: hidden;
+}
+.dash-top { display: flex; align-items: center; gap: 7px; padding: 14px 20px; border-bottom: 1px solid var(--card-border); font-size: .82rem; color: var(--dim); }
+.dash-top i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255, 255, 255, .14); }
+.dash-top i:nth-child(1) { background: #ff5f57; } .dash-top i:nth-child(2) { background: #febc2e; } .dash-top i:nth-child(3) { background: #28c840; }
+.dash-top span { margin-left: 12px; font-weight: 550; color: var(--text); }
+.dash-top em { margin-left: auto; font-style: normal; font-size: .74rem; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+.dash-body { display: grid; gap: 16px; padding: 16px; }
+.kpis { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+.kpi { padding: 16px; border-radius: 16px; background: rgba(255, 255, 255, .035); border: 1px solid var(--card-border); display: grid; gap: 4px; }
+.kpi small { font-size: .74rem; color: var(--dim); line-height: 1.25; }
+.kpi b { font-size: clamp(1.4rem, 3vw, 2.1rem); letter-spacing: -.03em; color: #fff; line-height: 1.1; }
+.kpi .up { font-size: .78rem; font-weight: 650; color: var(--accent); }
+.dash-main { padding: 18px; border-radius: 16px; background: rgba(255, 255, 255, .03); border: 1px solid var(--card-border); }
+.chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: .9rem; margin-bottom: 8px; flex-wrap: wrap; }
+.chart-head b { font-weight: 600; color: #fff; }
+.chart-head span { font-size: 1.3rem; font-weight: 700; letter-spacing: -.02em; color: var(--accent); }
+.chart { width: 100%; height: auto; overflow: visible; }
+.chart .grid { stroke: rgba(255, 255, 255, .07); stroke-width: 1; }
+.chart .line { fill: none; stroke: #34d399; stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.chart .area { opacity: 0; transition: opacity 1.2s .8s; }
+.chart .dotp { opacity: 0; transition: opacity .4s 1.7s; }
+.dash.in .chart .line { animation: draw 2s .3s cubic-bezier(.4, 0, .2, 1) forwards; }
+.dash.in .chart .area, .dash.in .chart .dotp { opacity: 1; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.funnel { display: grid; gap: 8px; margin-top: 18px; }
+.fbar {
+  width: 0; min-width: 0; height: 40px; padding: 0 14px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font-size: .82rem; color: #d9fbee; overflow: hidden; white-space: nowrap;
+  background: linear-gradient(90deg, rgba(16, 185, 129, .7), rgba(16, 185, 129, .14)); border: 1px solid rgba(52, 211, 153, .3);
+  transition: width 1.2s cubic-bezier(.2, .7, .2, 1) .5s;
+}
+.fbar b { color: #fff; font-weight: 700; }
+.dash.in .fbar { width: max(var(--w), 168px); }
+@media (min-width: 860px) {
+  .dash-body { grid-template-columns: 250px 1fr; padding: 22px; gap: 22px; }
+  .kpis { grid-template-columns: 1fr; align-content: start; }
+  .kpi { padding: 20px; }
+  .dash-main { padding: 22px; }
+}
+@media (max-width: 520px) { .kpi { padding: 12px; } .kpi small { font-size: .68rem; } }
+
+/* ---------- Altre sezioni ---------- */
+.tint { background: linear-gradient(180deg, transparent, rgba(16, 185, 129, .05) 50%, transparent); }
+.flow-section { padding-top: 0; }
+.big-p { display: grid; gap: 0; }
+.chk-list { display: grid; gap: 12px; margin-top: 8px; }
+.chk-list li { display: flex; gap: 12px; align-items: flex-start; color: var(--text); }
+.chk-list svg { flex: none; width: 22px; height: 22px; margin-top: 2px; padding: 4px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.step-time { display: inline-block; margin-top: 14px; font-size: .78rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.svc-link { margin-top: auto; padding-top: 6px; font-size: .86rem; font-weight: 650; color: var(--accent); display: inline-flex; gap: 8px; align-items: center; }
